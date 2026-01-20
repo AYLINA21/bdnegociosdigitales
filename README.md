@@ -150,4 +150,4 @@ Las bases de datos son el cimiento sobre el que se construyen los negocios digit
 
 ## Images
 
-![Imagen Principal](./IMG/Bases%20de%20datos.jpg "Base de datos para negocios digitales")
+![Imagen Principal](./IMG/Bases%20de%20datos.jpg "Base de datos para negocios digitales") 
