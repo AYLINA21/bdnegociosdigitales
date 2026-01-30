@@ -46,3 +46,5 @@ FROM tbl1;
 
 SELECT nombre
 FROM tbl1;
+
+docker run --name mysqlev -p  3341:3306 -v -e MYSQL_ROOT_PASSWORD=123456 -d my sql
