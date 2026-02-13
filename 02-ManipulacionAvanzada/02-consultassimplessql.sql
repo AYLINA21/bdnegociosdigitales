@@ -14,26 +14,26 @@ FROM Order Details;
 
 ---proyecciòn (seleccionar algunos campos)
 
-SELECT 
-	ProductID,
-	ProductName, 
-	UnitPrice, 
-	UnitsInSTock
+SELECT
+    ProductID,
+    ProductName,
+    UnitPrice,
+    UnitsInSTock
 FROM Products;
 
 --Alias de COLUMNAS - TABLAS
 
-SELECT 
-	ProductID AS [NUMERO DE PRODUCTO],
-	ProductName 'NOMBRE DE PRODUCTO', 
-	UnitPrice  AS [PRECIO UNITARIO], 
-	UnitsInSTock AS STOCK
+SELECT
+    ProductID AS [NUMERO DE PRODUCTO],
+    ProductName 'NOMBRE DE PRODUCTO',
+    UnitPrice  AS [PRECIO UNITARIO],
+    UnitsInSTock AS STOCK
 FROM Products;
 
-SELECT 
-	CompanyName AS CLIENTE,
-	City  AS CIUDAD,
-	Country AS PAIS
+SELECT
+    CompanyName AS CLIENTE,
+    City  AS CIUDAD,
+    Country AS PAIS
 FROM Customers;
 
 --CAMPOS CALCULADOS
@@ -58,31 +58,31 @@ SELECT*
 FROM [Order Details];
 
 SELECT
-	OrderID,
-	ProductID,
-	UnitPrice,
-	Quantity,
-	(UnitPrice * Quantity) AS IMPORTE
+    OrderID,
+    ProductID,
+    UnitPrice,
+    Quantity,
+    (UnitPrice * Quantity) AS IMPORTE
 FROM [Order Details];
 
 --TAREA SELECCIONAR LA VENTA CON EL CALCULO DEL IMPORTE CON DESCUENTO
 
 SELECT
-	OrderID,
-	UnitPrice,
+    OrderID,
+    UnitPrice,
     Discount
 FROM [Order Details];
 
 SELECT
-	OrderID,
-	UnitPrice,
-	Quantity,
-	Discount,
-	(UnitPrice * Quantity) AS IMPORTE,
-	(UnitPrice * Quantity) - ((UnitPrice * Quantity) * Discount)
-	AS [Importe con Descunto 1],
-	(UnitPrice * Quantity) * (1- Discount)
-	AS [Importe con Descunto 2]
+    OrderID,
+    UnitPrice,
+    Quantity,
+    Discount,
+    (UnitPrice * Quantity) AS IMPORTE,
+    (UnitPrice * Quantity) - ((UnitPrice * Quantity) * Discount)
+    AS [Importe con Descunto 1],
+    (UnitPrice * Quantity) * (1- Discount)
+    AS [Importe con Descunto 2]
 FROM [Order Details];
 
 --OPERADORES RELACIONALES (>,<,<=,>=,=,!= ó <>)
@@ -92,7 +92,7 @@ FROM [Order Details];
  SELECCIONAR LOS PEDIDOS POSTERIORES A 1997
 */
 --SELECCIONA LOS PRIMEROS 10
-SELECT TOP 10 * 
+SELECT TOP 10 *
 FROM PRODUCTS;
 
 --SELECCIONAR LOS PRODUCTOS CON PRECIO MAYOR A 30
@@ -120,51 +120,51 @@ WHERE OrderDate > 1998;
 
 --Extraer datos los rositas
 SELECT OrderID, OrderDate,CustomerID,ShipCountry,
-	YEAR(OrderDate) AS AÑO,
-	MONTH(OrderDate) AS MES,
-	DAY (orderDate) AS Dia,
-	DATEPART(YEAR, OrderDate) AS AÑO2,
-	DATEPART(QUARTER,OrderDate) AS TRIMESTRE,
-	DATEPART(WEEKDAY,OrderDate) AS  [DIA SEMANA],
-	DATENAME(WEEKDAY,OrderDate) AS  [DIA SEMANA NOMBRE]
+    YEAR(OrderDate) AS AÑO,
+    MONTH(OrderDate) AS MES,
+    DAY (orderDate) AS Dia,
+    DATEPART(YEAR, OrderDate) AS AÑO2,
+    DATEPART(QUARTER,OrderDate) AS TRIMESTRE,
+    DATEPART(WEEKDAY,OrderDate) AS  [DIA SEMANA],
+    DATENAME(WEEKDAY,OrderDate) AS  [DIA SEMANA NOMBRE]
 FROM Orders
 WHERE OrderDate >  '1997-12-31';
 --SELECCIONAR LOS PEDIDOS POSTERIORES A 1997
 
 --SELECCIONAR LOS PEDIDOS POSTERIORES A 1997
 SELECT OrderID, OrderDate,CustomerID,ShipCountry,
-	YEAR(OrderDate) AS AÑO,
-	MONTH(OrderDate) AS MES,
-	DAY (orderDate) AS Dia,
-	DATEPART(YEAR, OrderDate) AS AÑO2,
-	DATEPART(QUARTER,OrderDate) AS TRIMESTRE,
-	DATEPART(WEEKDAY,OrderDate) AS  [DIA SEMANA],
-	DATENAME(WEEKDAY,OrderDate) AS  [DIA SEMANA NOMBRE]
+    YEAR(OrderDate) AS AÑO,
+    MONTH(OrderDate) AS MES,
+    DAY (orderDate) AS Dia,
+    DATEPART(YEAR, OrderDate) AS AÑO2,
+    DATEPART(QUARTER,OrderDate) AS TRIMESTRE,
+    DATEPART(WEEKDAY,OrderDate) AS  [DIA SEMANA],
+    DATENAME(WEEKDAY,OrderDate) AS  [DIA SEMANA NOMBRE]
 FROM Orders
 WHERE YEAR(OrderDate) > 1997;
 
 SET LANGUAGE SPANISH;
 SELECT OrderID, OrderDate,CustomerID,ShipCountry,
-	YEAR(OrderDate) AS AÑO,
-	MONTH(OrderDate) AS MES,
-	DAY (orderDate) AS Dia,
-	DATEPART(YEAR, OrderDate) AS AÑO2,
-	DATEPART(QUARTER,OrderDate) AS TRIMESTRE,
-	DATEPART(WEEKDAY,OrderDate) AS  [DIA SEMANA],
-	DATENAME(WEEKDAY,OrderDate) AS  [DIA SEMANA NOMBRE]
+    YEAR(OrderDate) AS AÑO,
+    MONTH(OrderDate) AS MES,
+    DAY (orderDate) AS Dia,
+    DATEPART(YEAR, OrderDate) AS AÑO2,
+    DATEPART(QUARTER,OrderDate) AS TRIMESTRE,
+    DATEPART(WEEKDAY,OrderDate) AS  [DIA SEMANA],
+    DATENAME(WEEKDAY,OrderDate) AS  [DIA SEMANA NOMBRE]
 FROM Orders
 WHERE DATEPART(YEAR,OrderDate) > 1997;
 
 --OPERADORES LOGICOS (NOT,AND,OR)
 /*
-	SELECCIONAR LOS PRODUCTOS QUE TENGAN UN PRECIO MAYOR A 20 Y MENOS DE 100 UNIDADES EN STOCK
-	mostrar los clientes que sean de estados unidos o de canada
-	obtener los pedidos que no tengan region
+    SELECCIONAR LOS PRODUCTOS QUE TENGAN UN PRECIO MAYOR A 20 Y MENOS DE 100 UNIDADES EN STOCK
+    mostrar los clientes que sean de estados unidos o de canada
+    obtener los pedidos que no tengan region
 */
-SELECT * 
+SELECT *
 FROM PRODUCTS;
 
-SELECT 
+SELECT
 ProductID AS [ID producto],
 ProductName [Nombre producto],
 UnitsInStock [Stock],
@@ -172,7 +172,7 @@ UnitPrice [PRECIO]
 FROM PRODUCTS
 WHERE UnitPrice > 20 and UnitsInStock < 100;
 
-SELECT 
+SELECT
 CustomerID AS [ID CLIENTE],
 CompanyName [CONTACTO],
 City [CIUDAD],
@@ -204,14 +204,14 @@ ORDER BY Country DESC;
 SELECT*
 FROM Customers
 WHERE Country = 'Germany'OR
-	Country = 'Freance' OR
-	Country = 'uk';
+    Country = 'Freance' OR
+    Country = 'uk';
 
 --OBTENER LOS PRODUCTOS DONDE LA CATEGORIA SEA 1,3 O 5
 SELECT*
 FROM Products
-	ProductID AS [IDPRODUCTO],
-WHERE 
+    ProductID AS [IDPRODUCTO],
+WHERE
 
 --OPERADOR BETWEEN
 --MOSTRAR LOS PRODUCTOS CUYO PRECIO ESTA ENTRE 20 Y 40
@@ -236,12 +236,12 @@ SELECT CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE CompanyName Like 'a%';
 
---se les conoce como comodines 
+--se les conoce como comodines
 SELECT CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE CompanyName Like 'an%';
 
-SELECT CustomerID, CompanyName, City, Region, Country 
+SELECT CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE City LIKE 'L_nd__%';
 
@@ -250,26 +250,26 @@ FROM Customers
 WHERE CompanyName Like '%as';
 
 --seleccionar los clientes donde la ciudad contenga la letra L
-SELECT CustomerID, CompanyName, City, Region, Country 
+SELECT CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE City LIKE '%me%';
 
 --seleccionar todo los clientes que en su nombre comiencen con a o con b
-SELECT CustomerID, CompanyName, City, Region, Country 
+SELECT CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE NOT CompanyName LIKE 'a%' OR  CompanyName LIKE 'b%';
 
-SELECT CustomerID, CompanyName, City, Region, Country 
+SELECT CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE NOT (CompanyName LIKE 'a%' OR  CompanyName LIKE 'b%');
 
 --SELECCIONAR TODOS LOS CLIENTES QUE COMIENCEN CON B Y TERMINE CON S
 
-SELECT CustomerID, CompanyName, City, Region, Country 
+SELECT CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE CompanyName LIKE 'b%s';
 
-SELECT 
+SELECT
 CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE CompanyName LIKE 'a__%';
@@ -278,14 +278,14 @@ SELECT * FROM Customers
 WHERE City LIKE '_ondon';
 
 --seleccionar todos los clientes que comiencen con "b", "s", or "p":
-SELECT 
+SELECT
 CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE CompanyName LIKE '[bsp]%';
 
 --seleccionar todos los clientes que comiencen con "a", "b", "c", "d", "e" or "f":
 
-SELECT 
+SELECT
 CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE CompanyName LIKE '[abcdef]%';
@@ -298,12 +298,12 @@ WHERE CompanyName LIKE '[a-f]%'
 ORDER BY 2 ASC;
 
 --- EL SIMBOLO ^ ES COMO UNA NEGACIÓN COMO UN NOT
-SELECT 
+SELECT
 CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE CompanyName LIKE '[^bsp]%';
 
-SELECT 
+SELECT
 CustomerID, CompanyName, City, Region, Country
 FROM Customers
 WHERE CompanyName LIKE '[^A-F]%';
