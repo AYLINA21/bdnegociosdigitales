@@ -579,4 +579,4 @@ DECLARE @id_insertado2 INT
 SET @id_insertado2 = SCOPE_IDENTITY() --- para usar en un sp es mejor este porque da el del momento 
 PRINT 'ID INSERTADO: ' + CAST( @id_insertado2 as VARCHAR);
 SELECT @id_insertado2 = @@IDENTITY
-PRINT 'ID insertado forma 2: ' + CAST( @id_insertado2 as VARCHAR);
+PRINT 'ID insertado forma 2: ' + CAST( @id_insertado2 as VARCHAR);A
