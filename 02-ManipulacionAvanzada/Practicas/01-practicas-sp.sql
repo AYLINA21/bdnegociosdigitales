@@ -265,7 +265,7 @@ BEGIN TRY
     END
 
     ---- VALIDACIÓN DE PRODUCTO
-    IF NOT EXISTS (SELECT 1 FROM CatProducto WHERE id_producto = @id_producto)
+    IF NOT EXISTS (SELECT 1 FROM CatCliente WHERE id_cliente = @id_cliente)
     BEGIN
         THROW 50002, 'El producto no existe', 1;
     END
@@ -324,7 +324,7 @@ SELECT *
 FROM CatCliente;
 
 
-EXEC usp_agregar_venta  'ANTON', 1 , 3 ; -- deberia salir bien
+EXEC usp_agregar_venta 'Anton', 1 , 3 ; -- deberia salir bien
 EXEC usp_agregar_venta 'XXXXX', 1, 2; -- deberia salir cliente no existe
 EXEC usp_agregar_venta 'ANTON', 999, 2; -- deberia salir producto no existe
 EXEC usp_agregar_venta 'ANTON', 1, 999; -- deberia salir sin stock
