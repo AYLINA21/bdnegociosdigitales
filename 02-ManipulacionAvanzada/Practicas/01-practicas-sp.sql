@@ -317,6 +317,7 @@ BEGIN CATCH
 END CATCH
 END;
 
+go
 
 SELECT *
 FROM CatProducto;
@@ -328,3 +329,5 @@ EXEC usp_agregar_venta 'Anton', 1 , 3 ; -- deberia salir bien
 EXEC usp_agregar_venta 'XXXXX', 1, 2; -- deberia salir cliente no existe
 EXEC usp_agregar_venta 'ANTON', 999, 2; -- deberia salir producto no existe
 EXEC usp_agregar_venta 'ANTON', 1, 999; -- deberia salir sin stock
+
+
