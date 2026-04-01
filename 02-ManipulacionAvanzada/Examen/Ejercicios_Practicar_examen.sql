@@ -238,3 +238,14 @@ ROLLBACK;
 
 --Muchas abiertas	
 WHILE @@TRANCOUNT > 0 ROLLBACK
+
+----rangos
+SELECT 
+    @Total AS TotalGastado,
+    CASE
+        WHEN @Total > 5000 THEN 'VIP'
+        WHEN @Total BETWEEN 2000 AND 5000 THEN 'Frecuente'
+        ELSE 'Normal'
+    END AS Categoria;
+
+--- investigar como hacer tabla tipe como se consulta como se inserta y hacer un script donde se use y hacer un store 
